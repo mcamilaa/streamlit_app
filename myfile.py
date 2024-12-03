@@ -42,7 +42,7 @@ if menu == "Inicio":
 # Sección: Deforestación por año
 if menu == "Deforestación por año":
     st.header("Área deforestada por año")
-    st.info("El grafico a continuación nos permite analizar la perdida de áreas forestales en las ANP durante los años. De este modo, entenderemos la magnitud del problema que vive el Perú y apreciaremos los periodos de mayor cambio."
+    st.info("El grafico a continuación nos permite analizar la perdida de áreas forestales en las ANP durante los años. De este modo, entenderemos la magnitud del problema que vive el Perú y apreciaremos los periodos de mayor cambio.")
     # Crear un filtro para seleccionar el año
     years = data['ANIO_REPORTE'].unique()
     selected_year = st.selectbox("Selecciona el año para mostrar el gráfico:", years)
