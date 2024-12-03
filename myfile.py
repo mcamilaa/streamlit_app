@@ -106,10 +106,10 @@ if menu == "Deforestación por año":
             hovermode='x unified'
         )
 
-        # Mostrar gráfico en Streamlit
+     
         st.plotly_chart(fig)
 
-        # Mostrar tabla de datos filtrados
+        # tabla de datos filtrados
         datos_filtrados.index = datos_filtrados.index + 1
         st.write(datos_filtrados[['MES_IMAG', 'ANIO_REPORTE', 'AREA_DEFO']])
         st.markdown("*La tabla muestra los datos de deforestación mensuales para el año seleccionado.*")
@@ -127,7 +127,7 @@ if menu == "Causas de Deforestación":
     area_causa = area_causa.sort_values('AREA_DEFO', ascending=False)  # Ordenar por área
 
 
-    # Paleta de colores
+    # colores
     custom_colors = [
      "#6BAED6",  # Azul claro
      "#FDD835",  # Amarillo dorado
@@ -136,7 +136,7 @@ if menu == "Causas de Deforestación":
      "#9575CD"   # Morado
     ]
 
-    # Crear gráfico de pastel interactivo con Plotly
+    # gráfico de pastel 
     fig = px.pie(
         area_causa,
         values='AREA_DEFO',
@@ -146,7 +146,7 @@ if menu == "Causas de Deforestación":
         hole=0.3  # Gráfico de dona
     )
     
-    # Personalizar la visualización de etiquetas
+    # etiquetas
     fig.update_traces(
         textinfo='percent+label',
         hoverinfo='label+value+percent',
@@ -252,7 +252,7 @@ if menu == "Área Deforestada por ANP":
     st.header("Área Deforestada por Categoría de ANP (2021-2023)")
     st.write("Las ANP si bien son protegidas por el estado, aún existe un sistema poco eficiente para lograr la cobertura total de protección de las regiones. Debido a que se siguen encontrando expuestas a peligros, en los gráficos a continuación veremos las áreas deforestadas separadas por categorías de ANP de las diversas partes del Perú.")
     
-    # Filtrar datos para el periodo 2021-2023
+    # Filtrar datos para 2021-2023
     filtered_data = data[(data["ANIO_REPORTE"] >= 2021) & (data["ANIO_REPORTE"] <= 2023)].copy()
 
     # Limpieza de la columna "CATEGORIA" (quitar espacios y uniformar formato)
@@ -262,19 +262,18 @@ if menu == "Área Deforestada por ANP":
     if filtered_data.empty:
         st.warning("No se encontraron datos para el período 2021-2023.")
     else:
-        # Agrupar datos por categoría y ANP, sumando el área deforestada
+        # Agrupar datos por categoría y ANP
         sum_area_deforestation = filtered_data.groupby(["CATEGORIA", "ANP"])["AREA_DEFO"].sum().reset_index()
-
-        # Obtener las categorías únicas
+     
         categorias = sum_area_deforestation["CATEGORIA"].unique()
 
-        # Combo box para seleccionar la categoría
+        # Combo box 
         categoria_seleccionada = st.selectbox("Selecciona una categoría", categorias)
 
-        # Filtrar datos por la categoría seleccionada
+        # Filtra datos por la categoría seleccionada
         categoria_data = sum_area_deforestation[sum_area_deforestation["CATEGORIA"] == categoria_seleccionada]
 
-        # Verificar si hay datos para la categoría seleccionada
+        # Verificación
         if categoria_data.empty:
             st.warning(f"No hay datos para la categoría: {categoria_seleccionada}")
         else:
@@ -292,14 +291,14 @@ if menu == "Área Deforestada por ANP":
                 color_discrete_sequence=px.colors.qualitative.Set3
             )
 
-            # Mostrar gráfico en Streamlit
+            
             st.plotly_chart(fig)
 
-        # Mostrar información adicional
+        
         st.markdown(f"*Mostrando datos para la categoría: {categoria_seleccionada}.*")
 
-        # Diccionario con las descripciones de cada categoría
-        import streamlit as st
+   
+        
 
         # Descripciones de ANP
         descripciones = {
@@ -333,24 +332,24 @@ if menu == "Área Deforestada por ANP":
                 "imagen_url": "https://raw.githubusercontent.com/mcamilaa/streamlit_app/refs/heads/main/imagenes/santuario_nacional.jpeg", 
                 "emoji": "🌱"
             },
-            "Zona Reservada": {
+            "Zonas Reservadas": {
                 "descripcion": "Espacios con características especiales que se encuentran en evaluación para definir su categoría definitiva dentro del Sistema Nacional de Áreas Protegidas. Mientras tanto, se aplican medidas provisionales de conservación para evitar impactos negativos y garantizar su protección. \n\n¿DE QUÉ MANERA AFECTA LA DEFORESTACIÓN? La pérdida de bosques en estas áreas dificulta su evaluación y amenaza con destruir su valor antes de que puedan ser categorizadas. Esto pone en peligro tanto su biodiversidad como su potencial para la conservación.",
                 "imagen_url": "https://raw.githubusercontent.com/mcamilaa/streamlit_app/refs/heads/main/imagenes/zona_reservada.jpeg",  
                 "emoji": "🛑"
             }
         }
 
-        # Mostrar la información en el cuadro
+        # Mostrar la información 
         if categoria_seleccionada in descripciones:
             info = descripciones[categoria_seleccionada]
             
-            # Mostrar cuadro de información
+            
             st.markdown(
                 f"¿Qué es un(a) {categoria_seleccionada}? {info['emoji']}\n\n{info['descripcion']}"
             )
 
             
-            # Mostrar imagen al final
+            # imagen 
             st.image(info['imagen_url'], caption=f"{categoria_seleccionada} - Imagen representativa", width=300)
         else:
             st.warning("No se encontró información adicional para esta categoría.")
@@ -365,7 +364,7 @@ if menu == "Conoce más":
 
     tab1, tab2, tab3 = st.tabs(["SOSelva", "Impacto Ambiental", "Cómo puedes ayudar"])
 
-    # Pestaña 1: SOSelva
+    # SOSelva
     with tab1:
         st.subheader("¿Qué es SOSelva?")
         st.write(
@@ -396,7 +395,7 @@ if menu == "Conoce más":
         
         st.info("Conoce más en el sitio oficial de [SERNANP](https://www.sernanp.gob.pe).")
 
-    # Pestaña 2: Impacto Ambiental
+    # Impacto Ambiental
     with tab2:
         st.subheader("Impacto Ambiental de la Deforestación")
         st.write(
@@ -413,7 +412,7 @@ if menu == "Conoce más":
         st.image("https://raw.githubusercontent.com/mcamilaa/streamlit_app/refs/heads/main/imagenes/impacto.jpg", 
                  caption="Impacto de la deforestación en ecosistemas vulnerables", use_column_width=True)
 
-    # Pestaña 3: Cómo puedes ayudar
+    # Cómo puedes ayudar
     with tab3:
         st.subheader("¿Cómo puedes ayudar?")
         st.write(
