@@ -235,9 +235,9 @@ if menu == "Zonificación":
 col5, col6, col7, col8 = st.columns(4)
 
 # Columna 5
-    with col5:
-        st.markdown("**5. Zona de Recuperación**")
-        st.write("Áreas en regeneración, aún afectadas por actividades humanas.")
+     with col5:
+         st.markdown("**5. Zona de Recuperación**")
+         st.write("Áreas en regeneración, aún afectadas por actividades humanas.")
 
 # Columna 6
     with col6:
