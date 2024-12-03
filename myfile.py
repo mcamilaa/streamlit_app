@@ -174,6 +174,7 @@ if menu == "Causas de Deforestación":
 # Sección: Comparativo
 if menu == "Comparativo":
     st.header("Comparación entre Años")
+    st.write("De las estadisticas anterior logramos sacar un promedio. Podemos observar que el año 2021 fue uno de los más significativos en términos de deforestación. Durante este periodo, se registró un aumento notable en las áreas deforestadas, lo que pone de manifiesto la magnitud de la crisis ambiental. Este incremento se debe principalmente a la reactivación de las actividades económicas después de una larga cuarentena, donde muchas industrias sufrieron grandes perdidas. Este patrón de deforestación resalta la necesidad urgente de implementar medidas de conservación más estrictas y políticas que regulen y protejan de manera efectiva las áreas naturales protegidas.")
     promedios = pd.DataFrame({
         "Año": ["2021", "2022", "2023"],
         "Promedio Mensual (ha)": [
