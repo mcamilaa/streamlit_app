@@ -280,7 +280,7 @@ if menu == "Conoce más":
             "proteger las áreas naturales protegidas de Perú, combatir la deforestación y promover "
             "el desarrollo sostenible."
         )
-        st.image("https://github.com/mcamilaa/streamlit_app/blob/main/imagenes/soselva.jpeg", 
+        st.image("https://raw.githubusercontent.com/mcamilaa/streamlit_app/refs/heads/main/imagenes/soselva.jpeg", 
                  caption="Conservando la Amazonía peruana")
 
         st.markdown("### Acciones Principales de SOSelva:")
@@ -309,7 +309,7 @@ if menu == "Conoce más":
         - Incremento de emisiones de gases de efecto invernadero.
         - Erosión del suelo y pérdida de servicios ecosistémicos.
         """)
-        st.image("https://github.com/mcamilaa/streamlit_app/blob/main/imagenes/impacto.jpg", 
+        st.image("https://raw.githubusercontent.com/mcamilaa/streamlit_app/refs/heads/main/imagenes/impacto.jpg", 
                  caption="Impacto de la deforestación en ecosistemas vulnerables", use_column_width=True)
 
     # Pestaña 3: Cómo puedes ayudar
