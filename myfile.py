@@ -268,63 +268,106 @@ if menu == "Área Deforestada por ANP":
 # Sección: Conoce más
 if menu == "Conoce más":
     st.header("¿Cómo ayudo a frenar la deforestación?")
-    st.write("¡Conoce a SOSelva!")
 
-    tab1, tab2, tab3 = st.tabs(["SOSelva", "Impacto Ambiental", "Cómo puedes ayudar"])
-
-    # Pestaña 1: SOSelva
-    with tab1:
-        st.subheader("¿Qué es SOSelva?")
-        st.write(
-            "SOSelva es una iniciativa impulsada por el SERNANP y aliados estratégicos para "
-            "proteger las áreas naturales protegidas de Perú, combatir la deforestación y promover "
-            "el desarrollo sostenible."
-        )
-        st.image("https://raw.githubusercontent.com/mcamilaa/streamlit_app/main/imagenes/soselva.jpg", 
-                 caption="Conservando la Amazonía peruana", use_column_width=True)
-
-        st.markdown("### Acciones Principales de SOSelva:")
-        st.write("""
-        - Monitoreo de áreas naturales protegidas.
-        - Promoción del turismo sostenible.
-        - Desarrollo de actividades económicas sostenibles para comunidades locales.
-        - Combate de delitos ambientales como el tráfico de fauna silvestre.
-        """)
-        st.markdown("### Aliados Estratégicos:")
-        st.write("Profonanpe, SPDA, APECO, LATAM Airlines y otros.")
+        # Título principal
+        st.title("Conoce a SOSelva 🌿")
         
-        st.info("Conoce más en el sitio oficial de [SERNANP](https://www.sernanp.gob.pe).")
-
-    # Pestaña 2: Impacto Ambiental
-    with tab2:
-        st.subheader("Impacto Ambiental de la Deforestación")
-        st.write(
-            "La deforestación tiene consecuencias graves en la biodiversidad, el cambio climático "
-            "y la sostenibilidad de las comunidades locales. Perú, al ser un país megadiverso, "
-            "enfrenta desafíos significativos debido a la pérdida de cobertura forestal."
+        # Estilo para las pestañas
+        st.markdown(
+            """
+            <style>
+            .tabs-container {
+                display: flex;
+                border-bottom: 2px solid #ccc;
+                margin-bottom: 20px;
+            }
+            .tab {
+                padding: 10px 20px;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+                border: 1px solid transparent;
+                border-radius: 5px 5px 0 0;
+                margin-right: 5px;
+            }
+            .tab.active {
+                background-color: #FF6F61; /* Color rojo */
+                color: white;
+                border: 1px solid #FF6F61;
+            }
+            .tab.inactive {
+                background-color: #f9f9f9;
+                color: black;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True,
         )
-        st.markdown("### Consecuencias principales:")
-        st.write("""
-        - Pérdida de hábitats para especies endémicas.
-        - Incremento de emisiones de gases de efecto invernadero.
-        - Erosión del suelo y pérdida de servicios ecosistémicos.
-        """)
-        st.image("https://raw.githubusercontent.com/mcamilaa/streamlit_app/main/imagenes/impacto.jpg", 
-                 caption="Impacto de la deforestación en ecosistemas vulnerables", use_column_width=True)
-
-    # Pestaña 3: Cómo puedes ayudar
-    with tab3:
-        st.subheader("¿Cómo puedes ayudar?")
-        st.write(
-            "La protección de nuestros bosques es una tarea colectiva. Aquí hay algunas maneras en las que puedes contribuir:"
+        
+        # Secciones (pestañas)
+        sections = ["SOSelva", "Impacto Ambiental", "Cómo Puedes Ayudar"]
+        selected_section = st.session_state.get("selected_section", sections[0])
+        
+        # Renderizar pestañas
+        st.markdown('<div class="tabs-container">', unsafe_allow_html=True)
+        for section in sections:
+            active_class = "active" if section == selected_section else "inactive"
+            st.markdown(
+                f'<div class="tab {active_class}" onclick="setSection(\'{section}\')">{section}</div>',
+                unsafe_allow_html=True,
+            )
+        st.markdown("</div>", unsafe_allow_html=True)
+        
+        # Contenido según la pestaña seleccionada
+        if selected_section == "SOSelva":
+            st.header("SOSelva 🌱")
+            st.write(
+                """
+                SOSelva es una iniciativa dedicada a monitorear y combatir la deforestación en regiones críticas
+                como la cuenca Puyango-Tumbes. Utilizamos tecnología satelital, análisis de datos y la colaboración
+                comunitaria para proteger nuestros bosques.
+                """
+            )
+            st.write("- 🌳 **Deforestación monitoreada:** Cuenca Puyango-Tumbes.")
+            st.write("- 📊 **Herramientas utilizadas:** HEC-HMS, imágenes satelitales (Landsat), y más.")
+        
+        elif selected_section == "Impacto Ambiental":
+            st.header("Impacto Ambiental 🌍")
+            st.write(
+                """
+                Los efectos de la deforestación van más allá de la pérdida de árboles. Algunos de los impactos
+                más graves incluyen:
+                """
+            )
+            st.write("- 🔥 **Aumento de las temperaturas locales:** La pérdida de cobertura vegetal incrementa el calor en las zonas afectadas.")
+            st.write("- 💧 **Disminución de la calidad y cantidad de agua:** Menor capacidad de los bosques para retener agua.")
+            st.write("- 🐾 **Pérdida de biodiversidad:** Muchas especies pierden sus hábitats naturales.")
+        
+        elif selected_section == "Cómo Puedes Ayudar":
+            st.header("Cómo Puedes Ayudar 🤝")
+            st.write(
+                """
+                ¡Tu apoyo es fundamental para proteger los bosques! Aquí te dejamos algunas ideas:
+                """
+            )
+            st.write("- 🌱 **Participa en reforestaciones comunitarias.**")
+            st.write("- 💰 **Apoya con donaciones a iniciativas como SOSelva.**")
+            st.write("- 📢 **Comparte información y sensibiliza a otros sobre la deforestación.**")
+        
+        # JavaScript para manejar la selección de pestañas
+        st.markdown(
+            """
+            <script>
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    const selectedTab = e.target.innerText;
+                    Streamlit.setComponentValue({selected_section: selectedTab});
+                });
+            });
+            </script>
+            """,
+            unsafe_allow_html=True,
         )
-        st.markdown("### Opciones para contribuir:")
-        st.write("""
-        - Participa como voluntario en programas de reforestación.
-        - Apoya iniciativas como SOSelva mediante donaciones o difusión.
-        - Reduce tu consumo de productos asociados con la deforestación (como madera ilegal).
-        - Promueve el ecoturismo y las prácticas sostenibles.
-        """)
-        st.success("¡Cada acción cuenta para proteger nuestras áreas naturales protegidas!")
-    
-
