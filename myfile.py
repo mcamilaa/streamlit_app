@@ -269,105 +269,106 @@ if menu == "Área Deforestada por ANP":
 if menu == "Conoce más":
     st.header("¿Cómo ayudo a frenar la deforestación?")
 
-        # Título principal
-        st.title("Conoce a SOSelva 🌿")
-        
-        # Estilo para las pestañas
+    # Título principal
+    st.title("Conoce a SOSelva 🌿")
+    
+    # Estilo para las pestañas
+    st.markdown(
+        """
+        <style>
+        .tabs-container {
+            display: flex;
+            border-bottom: 2px solid #ccc;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            border: 1px solid transparent;
+            border-radius: 5px 5px 0 0;
+            margin-right: 5px;
+        }
+        .tab.active {
+            background-color: #FF6F61; /* Color rojo */
+            color: white;
+            border: 1px solid #FF6F61;
+        }
+        .tab.inactive {
+            background-color: #f9f9f9;
+            color: black;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+    
+    # Secciones (pestañas)
+    sections = ["SOSelva", "Impacto Ambiental", "Cómo Puedes Ayudar"]
+    selected_section = st.session_state.get("selected_section", sections[0])
+    
+    # Renderizar pestañas
+    st.markdown('<div class="tabs-container">', unsafe_allow_html=True)
+    for section in sections:
+        active_class = "active" if section == selected_section else "inactive"
         st.markdown(
-            """
-            <style>
-            .tabs-container {
-                display: flex;
-                border-bottom: 2px solid #ccc;
-                margin-bottom: 20px;
-            }
-            .tab {
-                padding: 10px 20px;
-                cursor: pointer;
-                font-size: 16px;
-                font-weight: bold;
-                display: flex;
-                align-items: center;
-                border: 1px solid transparent;
-                border-radius: 5px 5px 0 0;
-                margin-right: 5px;
-            }
-            .tab.active {
-                background-color: #FF6F61; /* Color rojo */
-                color: white;
-                border: 1px solid #FF6F61;
-            }
-            .tab.inactive {
-                background-color: #f9f9f9;
-                color: black;
-            }
-            </style>
-            """,
+            f'<div class="tab {active_class}" onclick="setSection(\'{section}\')">{section}</div>',
             unsafe_allow_html=True,
         )
-        
-        # Secciones (pestañas)
-        sections = ["SOSelva", "Impacto Ambiental", "Cómo Puedes Ayudar"]
-        selected_section = st.session_state.get("selected_section", sections[0])
-        
-        # Renderizar pestañas
-        st.markdown('<div class="tabs-container">', unsafe_allow_html=True)
-        for section in sections:
-            active_class = "active" if section == selected_section else "inactive"
-            st.markdown(
-                f'<div class="tab {active_class}" onclick="setSection(\'{section}\')">{section}</div>',
-                unsafe_allow_html=True,
-            )
-        st.markdown("</div>", unsafe_allow_html=True)
-        
-        # Contenido según la pestaña seleccionada
-        if selected_section == "SOSelva":
-            st.header("SOSelva 🌱")
-            st.write(
-                """
-                SOSelva es una iniciativa dedicada a monitorear y combatir la deforestación en regiones críticas
-                como la cuenca Puyango-Tumbes. Utilizamos tecnología satelital, análisis de datos y la colaboración
-                comunitaria para proteger nuestros bosques.
-                """
-            )
-            st.write("- 🌳 **Deforestación monitoreada:** Cuenca Puyango-Tumbes.")
-            st.write("- 📊 **Herramientas utilizadas:** HEC-HMS, imágenes satelitales (Landsat), y más.")
-        
-        elif selected_section == "Impacto Ambiental":
-            st.header("Impacto Ambiental 🌍")
-            st.write(
-                """
-                Los efectos de la deforestación van más allá de la pérdida de árboles. Algunos de los impactos
-                más graves incluyen:
-                """
-            )
-            st.write("- 🔥 **Aumento de las temperaturas locales:** La pérdida de cobertura vegetal incrementa el calor en las zonas afectadas.")
-            st.write("- 💧 **Disminución de la calidad y cantidad de agua:** Menor capacidad de los bosques para retener agua.")
-            st.write("- 🐾 **Pérdida de biodiversidad:** Muchas especies pierden sus hábitats naturales.")
-        
-        elif selected_section == "Cómo Puedes Ayudar":
-            st.header("Cómo Puedes Ayudar 🤝")
-            st.write(
-                """
-                ¡Tu apoyo es fundamental para proteger los bosques! Aquí te dejamos algunas ideas:
-                """
-            )
-            st.write("- 🌱 **Participa en reforestaciones comunitarias.**")
-            st.write("- 💰 **Apoya con donaciones a iniciativas como SOSelva.**")
-            st.write("- 📢 **Comparte información y sensibiliza a otros sobre la deforestación.**")
-        
-        # JavaScript para manejar la selección de pestañas
-        st.markdown(
+    st.markdown("</div>", unsafe_allow_html=True)
+    
+    # Contenido según la pestaña seleccionada
+    if selected_section == "SOSelva":
+        st.header("SOSelva 🌱")
+        st.write(
             """
-            <script>
-            const tabs = document.querySelectorAll('.tab');
-            tabs.forEach(tab => {
-                tab.addEventListener('click', (e) => {
-                    const selectedTab = e.target.innerText;
-                    Streamlit.setComponentValue({selected_section: selectedTab});
-                });
+            SOSelva es una iniciativa dedicada a monitorear y combatir la deforestación en regiones críticas
+            como la cuenca Puyango-Tumbes. Utilizamos tecnología satelital, análisis de datos y la colaboración
+            comunitaria para proteger nuestros bosques.
+            """
+        )
+        st.write("- 🌳 **Deforestación monitoreada:** Cuenca Puyango-Tumbes.")
+        st.write("- 📊 **Herramientas utilizadas:** HEC-HMS, imágenes satelitales (Landsat), y más.")
+    
+    elif selected_section == "Impacto Ambiental":
+        st.header("Impacto Ambiental 🌍")
+        st.write(
+            """
+            Los efectos de la deforestación van más allá de la pérdida de árboles. Algunos de los impactos
+            más graves incluyen:
+            """
+        )
+        st.write("- 🔥 **Aumento de las temperaturas locales:** La pérdida de cobertura vegetal incrementa el calor en las zonas afectadas.")
+        st.write("- 💧 **Disminución de la calidad y cantidad de agua:** Menor capacidad de los bosques para retener agua.")
+        st.write("- 🐾 **Pérdida de biodiversidad:** Muchas especies pierden sus hábitats naturales.")
+    
+    elif selected_section == "Cómo Puedes Ayudar":
+        st.header("Cómo Puedes Ayudar 🤝")
+        st.write(
+            """
+            ¡Tu apoyo es fundamental para proteger los bosques! Aquí te dejamos algunas ideas:
+            """
+        )
+        st.write("- 🌱 **Participa en reforestaciones comunitarias.**")
+        st.write("- 💰 **Apoya con donaciones a iniciativas como SOSelva.**")
+        st.write("- 📢 **Comparte información y sensibiliza a otros sobre la deforestación.**")
+    
+    # JavaScript para manejar la selección de pestañas
+    st.markdown(
+        """
+        <script>
+        const tabs = document.querySelectorAll('.tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                const selectedTab = e.target.innerText;
+                Streamlit.setComponentValue({selected_section: selectedTab});
             });
-            </script>
-            """,
-            unsafe_allow_html=True,
-        )
+        });
+        </script>
+        """,
+        unsafe_allow_html=True,
+    )
+
