@@ -207,54 +207,55 @@ if menu == "Zonificación":
         'ZONIFI_ANP': 'Zonificación',
         'AREA_DEFO': 'Área Deforestada (ha)'
     }))
-  
-#inicio
-# Crear columnas para distribuir la información de forma ordenada
-col1, col2, col3, col4 = st.columns(4)
+    #inicio
+    # Crear columnas para distribuir la información de forma ordenada
+    col1, col2, col3, col4 = st.columns(4)
 
 # Columna 1
-with col1:
-    st.markdown("**1. Zona de Aprovechamiento Directo**")
-    st.write("Áreas productivas con alta deforestación por agricultura y ganadería.")
+    with col1:
+        st.markdown("**1. Zona de Aprovechamiento Directo**")
+        st.write("Áreas productivas con alta deforestación por agricultura y ganadería.")
 
 # Columna 2
-with col2:
-    st.markdown("**2. Zona de Uso Especial**")
-    st.write("Áreas protegidas, pero con deforestación ilegal.")
+    with col2:
+       st.markdown("**2. Zona de Uso Especial**")
+       st.write("Áreas protegidas, pero con deforestación ilegal.")
 
 # Columna 3
-with col3:
-    st.markdown("**3. Zona Silvestre**")
-    st.write("Territorios de conservación, afectados por minería y tala ilegal.")
+    with col3:
+        st.markdown("**3. Zona Silvestre**")
+        st.write("Territorios de conservación, afectados por minería y tala ilegal.")
 
 # Columna 4
-with col4:
-    st.markdown("**4. No Zonificado**")
-    st.write("Áreas sin regulación, vulnerables a la deforestación.")
+    with col4:
+        st.markdown("**4. No Zonificado**")
+        st.write("Áreas sin regulación, vulnerables a la deforestación.")
 
 # Nueva fila de columnas para continuar con la información
 col5, col6, col7, col8 = st.columns(4)
 
 # Columna 5
-with col5:
-    st.markdown("**5. Zona de Recuperación**")
-    st.write("Áreas en regeneración, aún afectadas por actividades humanas.")
+    with col5:
+        st.markdown("**5. Zona de Recuperación**")
+        st.write("Áreas en regeneración, aún afectadas por actividades humanas.")
 
 # Columna 6
-with col6:
-    st.markdown("**6. Zona de Protección Estricta**")
-    st.write("Áreas sin intervención, pero amenazadas por actividades ilegales.")
+    with col6:
+        st.markdown("**6. Zona de Protección Estricta**")
+        st.write("Áreas sin intervención, pero amenazadas por actividades ilegales.")
 
 # Columna 7
-with col7:
-    st.markdown("**7. Zona de Uso Turístico y Recreativo**")
-    st.write("Áreas turísticas que sufren daños por crecimiento desordenado.")
+    with col7:
+        st.markdown("**7. Zona de Uso Turístico y Recreativo**")
+        st.write("Áreas turísticas que sufren daños por crecimiento desordenado.")
 
 # Columna 8
-with col8:
-    st.markdown("**8. Zona Histórico Cultural**")
-    st.write("Áreas patrimoniales, amenazadas por expansión agrícola y urbanización ilegal.")
+    with col8:
+        st.markdown("**8. Zona Histórico Cultural**")
+        st.write("Áreas patrimoniales, amenazadas por expansión agrícola y urbanización ilegal.")
 #final
+  
+
 # Sección: Área Deforestada por Categoría de ANP
 if menu == "Área Deforestada por ANP":
     st.header("Área Deforestada por Categoría de ANP (2021-2023)")
