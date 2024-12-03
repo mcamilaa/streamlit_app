@@ -350,7 +350,7 @@ if menu == "Área Deforestada por ANP":
             )
             
             # Mostrar imagen al final
-            st.image(info['imagen_url'], caption=f"{categoria_seleccionada} - Imagen representativa", use_column_width=False)
+            st.image(info['imagen_url'], caption=f"{categoria_seleccionada} - Imagen representativa", use_column_width=True)
         else:
             st.warning("No se encontró información adicional para esta categoría.")
 
