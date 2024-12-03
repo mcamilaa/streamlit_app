@@ -340,32 +340,18 @@ if menu == "Área Deforestada por ANP":
             }
         }
 
-        # Mostrar la información en un cuadro personalizado
+        # Mostrar la información en el cuadro
         if categoria_seleccionada in descripciones:
             info = descripciones[categoria_seleccionada]
             
-            # Cuadro personalizado
+            # Mostrar cuadro de información
             st.markdown(
-                f"""
-                <div style="
-                    background-color: #f9f9f9;  /* Color de fondo */
-                    border-left: 5px solid #007BFF;  /* Color del borde */
-                    padding: 10px; 
-                    border-radius: 5px; 
-                    margin-bottom: 20px;">
-                    <h3 style="margin: 0;">¿Qué es un(a) {categoria_seleccionada}? {info['emoji']}</h3>
-                    <p>{info['descripcion']}</p>
-                </div>
-                """,
-                unsafe_allow_html=True
+                f"¿Qué es un(a) {categoria_seleccionada}? {info['emoji']}\n\n{info['descripcion']}"
             )
+
             
-            # Mostrar imagen con tamaño ajustado
-            st.image(
-                info['imagen_url'], 
-                caption=f"{categoria_seleccionada} - Imagen representativa", 
-                width=300  # Tamaño ajustable
-            )
+            # Mostrar imagen al final
+            st.image(info['imagen_url'], caption=f"{categoria_seleccionada} - Imagen representativa", width=300)
         else:
             st.warning("No se encontró información adicional para esta categoría.")
 
