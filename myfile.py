@@ -280,8 +280,16 @@ if menu == "Conoce más":
             "proteger las áreas naturales protegidas de Perú, combatir la deforestación y promover "
             "el desarrollo sostenible."
         )
-        st.image("https://raw.githubusercontent.com/mcamilaa/streamlit_app/refs/heads/main/imagenes/soselva.jpeg", 
-                 caption="Conservando la Amazonía peruana")
+     
+        st.markdown(
+        """
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <img src="https://raw.githubusercontent.com/mcamilaa/streamlit_app/main/imagenes/soselva.jpeg" 
+                 alt="SOSelva" style="width: 80%; max-width: 500px; height: auto; border-radius: 10px;">
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
         st.markdown("### Acciones Principales de SOSelva:")
         st.write("""
