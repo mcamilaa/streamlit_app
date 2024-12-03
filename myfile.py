@@ -42,7 +42,7 @@ if menu == "Inicio":
 # Sección: Deforestación por año
 if menu == "Deforestación por año":
     st.header("Área deforestada por año")
-    st.info("El grafico a continuación nos permite analizar la perdida de áreas forestales en las ANP durante los años. De este modo, entenderemos la magnitud del problema que vive el Perú y apreciaremos los periodos de mayor cambio.")
+    st.write("El grafico a continuación nos permite analizar la perdida de áreas forestales en las ANP durante los años. De este modo, entenderemos la magnitud del problema que vive el Perú y apreciaremos los periodos de mayor cambio.")
     # Crear un filtro para seleccionar el año
     years = data['ANIO_REPORTE'].unique()
     selected_year = st.selectbox("Selecciona el año para mostrar el gráfico:", years)
@@ -121,7 +121,7 @@ if menu == "Deforestación por año":
 # Sección: Causas de Deforestación (Gráfico Interactivo)
 if menu == "Causas de Deforestación":
     st.header("Causas de la Deforestación")
-    st.info("a deforestación no es un fenómeno aleatorio; es impulsada por una combinación de factores humanos y naturales. Los cuales tienden a ser unos más comunes que otros. Entre las causas humanas más comunes se encuentran la agricultura, transporte, mineria y ocupación humana. Los cuales veremos a continuación")
+    st.write("La deforestación no es un fenómeno aleatorio; es impulsada por una combinación de factores humanos y naturales. Los cuales tienden a ser unos más comunes que otros. Entre las causas humanas más comunes se encuentran la agricultura, transporte, mineria y ocupación humana. Los cuales veremos a continuación")
     # Agrupación de datos por causa
     area_causa = data.groupby('DEFO_CAUSA')['AREA_DEFO'].sum().reset_index()
     area_causa = area_causa.sort_values('AREA_DEFO', ascending=False)  # Ordenar por área
