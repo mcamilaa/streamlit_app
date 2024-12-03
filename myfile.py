@@ -192,7 +192,7 @@ if menu == "Comparativo":
     st.pyplot(fig)
     st.write(promedios)
 
-    st.image("https://github.com/mcamilaa/streamlit_app/blob/main/imagenes/defortc.png")
+    st.image("https://raw.githubusercontent.com/mcamilaa/streamlit_app/refs/heads/main/imagenes/defortc.png")
 
 # Sección: Zonificación
 if menu == "Zonificación":
