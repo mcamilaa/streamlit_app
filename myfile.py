@@ -299,78 +299,46 @@ if menu == "Área Deforestada por ANP":
         st.markdown(f"*Mostrando datos para la categoría: {categoria_seleccionada}.*")
 
         # Diccionario con las descripciones de cada categoría
+        import streamlit as st
+
+        # Descripciones de ANP
         descripciones = {
-             "Bosque De Protección": {
-                 "texto": """
-                 Áreas designadas para proteger suelos y recursos hídricos esenciales, actuando como barreras naturales contra procesos como la erosión, deslizamientos y sequías. Su manejo está enfocado en la preservación de ecosistemas y el control de actividades humanas que puedan afectar su equilibrio.
-         
-                 **¿DE QUÉ MANERA AFECTA LA DEFORESTACIÓN?**  
-                 La pérdida de cobertura vegetal en estas áreas acelera la erosión, degrada los suelos y afecta el ciclo hidrológico, aumentando el riesgo de inundaciones y deslizamientos en comunidades cercanas.
-                 """,
-                 "emoji": "🌳",  # Emoji para Bosque de Protección
-                 "imagen_url": "https://example.com/bosque_proteccion.jpg"
-             },
-             "Parque Nacional": {
-                 "texto": """
-                 Espacios de gran extensión donde se conserva la diversidad biológica y paisajes de alto valor escénico. Las actividades están restringidas principalmente al ecoturismo, la educación ambiental y la investigación científica. Representan ecosistemas clave y son hábitats de especies endémicas o en peligro.
-         
-                 **¿DE QUÉ MANERA AFECTA LA DEFORESTACIÓN?**  
-                 La tala afecta la biodiversidad, destruyendo hábitats esenciales y poniendo en peligro de extinción a especies únicas. Además, se pierde la capacidad de los bosques para regular el clima y almacenar carbono.
-                 """,
-                 "emoji": "🏞️",  # Emoji para Parque Nacional
-                 "imagen_url": "https://example.com/parque_nacional.jpg"
-             },
-             "Reserva Comunal": {
-                 "texto": """
-                 Áreas donde las comunidades indígenas o locales participan en la gestión y conservación de los recursos naturales. Buscan armonizar la protección de la biodiversidad con el uso tradicional sostenible, promoviendo actividades económicas como la recolección, pesca o ecoturismo, bajo un enfoque de respeto al entorno.
-         
-                 **¿DE QUÉ MANERA AFECTA LA DEFORESTACIÓN?**  
-                 La destrucción de los ecosistemas compromete la disponibilidad de recursos para las comunidades, afectando su sustento y rompiendo el equilibrio entre actividades tradicionales y la conservación.
-                 """,
-                 "emoji": "🛖",  # Emoji para Reserva Comunal
-                 "imagen_url": "https://example.com/reserva_comunal.jpg"
-             },
-             "Reserva Nacional": {
-                 "texto": """
-                 Zonas destinadas al uso sostenible de recursos naturales, como pesca, caza, recolección o forestación, siempre bajo una gestión adecuada para evitar el agotamiento. Su objetivo es conservar la biodiversidad y garantizar la sostenibilidad a largo plazo, permitiendo actividades económicas controladas.
-         
-                 **¿DE QUÉ MANERA AFECTA LA DEFORESTACIÓN?**  
-                 La extracción descontrolada de madera y la expansión agrícola reducen la disponibilidad de recursos y alteran la capacidad de regeneración de los ecosistemas, afectando tanto a la biodiversidad como a las comunidades dependientes.
-                 """,
-                 "emoji": "🌍",  # Emoji para Reserva Nacional
-                 "imagen_url": "https://example.com/reserva_nacional.jpg"
-             },
-             "Santuario Histórico": {
-                 "texto": """
-                 Áreas protegidas que albergan tanto riqueza cultural y arqueológica como biodiversidad significativa. Ejemplos notables son sitios con ruinas prehispánicas o lugares históricos rodeados de ecosistemas únicos, donde se combinan la conservación del patrimonio cultural y natural.
-         
-                 **¿DE QUÉ MANERA AFECTA LA DEFORESTACIÓN?**  
-                 La tala ilegal y el cambio de uso del suelo degradan el entorno natural que complementa y protege los sitios históricos, afectando tanto el patrimonio cultural como la biodiversidad asociada.
-                 """,
-                 "emoji": "🏺",  # Emoji para Santuario Histórico
-                 "imagen_url": "https://example.com/santuario_historico.jpg"
-             },
-             "Santuario Nacional": {
-                 "texto": """
-                 Áreas que protegen ecosistemas frágiles o únicos con especies de flora y fauna de alto valor ecológico. Aquí, las actividades humanas están estrictamente limitadas para garantizar la conservación de los hábitats en su estado más natural posible.
-         
-                 **¿DE QUÉ MANERA AFECTA LA DEFORESTACIÓN?**  
-                 En estos ecosistemas frágiles, cualquier pérdida de cobertura vegetal puede ser devastadora, eliminando especies vulnerables y alterando servicios ecosistémicos cruciales como la purificación del agua y la estabilidad del suelo.
-                 """,
-                 "emoji": "🌿",  # Emoji para Santuario Nacional
-                 "imagen_url": "https://example.com/santuario_nacional.jpg"
-             },
-             "Zonas Reservadas": {
-                 "texto": """
-                 Espacios con características especiales que se encuentran en evaluación para definir su categoría definitiva dentro del Sistema Nacional de Áreas Protegidas. Mientras tanto, se aplican medidas provisionales de conservación para evitar impactos negativos y garantizar su protección.
-         
-                 **¿DE QUÉ MANERA AFECTA LA DEFORESTACIÓN?**  
-                 La pérdida de bosques en estas áreas dificulta su evaluación y amenaza con destruir su valor antes de que puedan ser categorizadas. Esto pone en peligro tanto su biodiversidad como su potencial para la conservación.
-                 """,
-                 "emoji": "🛑",  # Emoji para Zonas Reservadas
-                 "imagen_url": "https://example.com/zonas_reservadas.jpg"
-             }
-         }
+            "Bosque De Protección": {
+                "descripcion": "Áreas designadas para proteger suelos y recursos hídricos esenciales, actuando como barreras naturales contra procesos como la erosión, deslizamientos y sequías. Su manejo está enfocado en la preservación de ecosistemas y el control de actividades humanas que puedan afectar su equilibrio. \n\n¿DE QUÉ MANERA AFECTA LA DEFORESTACIÓN? La pérdida de cobertura vegetal en estas áreas acelera la erosión, degrada los suelos y afecta el ciclo hidrológico, aumentando el riesgo de inundaciones y deslizamientos en comunidades cercanas.",
+                "imagen_url": "https://raw.githubusercontent.com/mcamilaa/streamlit_app/refs/heads/main/imagenes/bosque_de_proteccion.jpeg",  
+                "emoji": "🌳"
+            },
+            "Parque Nacional": {
+                "descripcion": "Espacios de gran extensión donde se conserva la diversidad biológica y paisajes de alto valor escénico. Las actividades están restringidas principalmente al ecoturismo, la educación ambiental y la investigación científica. Representan ecosistemas clave y son hábitats de especies endémicas o en peligro. \n\n¿DE QUÉ MANERA AFECTA LA DEFORESTACIÓN? La tala afecta la biodiversidad, destruyendo hábitats esenciales y poniendo en peligro de extinción a especies únicas. Además, se pierde la capacidad de los bosques para regular el clima y almacenar carbono.",
+                "imagen_url": "https://raw.githubusercontent.com/mcamilaa/streamlit_app/refs/heads/main/imagenes/parque_nacional.jpeg",  
+                "emoji": "🏞️"
+            },
+            "Reserva Comunal": {
+                "descripcion": "Áreas donde las comunidades indígenas o locales participan en la gestión y conservación de los recursos naturales. Buscan armonizar la protección de la biodiversidad con el uso tradicional sostenible, promoviendo actividades económicas como la recolección, pesca o ecoturismo, bajo un enfoque de respeto al entorno. \n\n¿DE QUÉ MANERA AFECTA LA DEFORESTACIÓN? La destrucción de los ecosistemas compromete la disponibilidad de recursos para las comunidades, afectando su sustento y rompiendo el equilibrio entre actividades tradicionales y la conservación.",
+                "imagen_url": "https://raw.githubusercontent.com/mcamilaa/streamlit_app/refs/heads/main/imagenes/reserva_comunal.jpeg",  
+                "emoji": "🌾"
+            },
+            "Reserva Nacional": {
+                "descripcion": "Zonas destinadas al uso sostenible de recursos naturales, como pesca, caza, recolección o forestación, siempre bajo una gestión adecuada para evitar el agotamiento. Su objetivo es conservar la biodiversidad y garantizar la sostenibilidad a largo plazo, permitiendo actividades económicas controladas. \n\n¿DE QUÉ MANERA AFECTA LA DEFORESTACIÓN? La extracción descontrolada de madera y la expansión agrícola reducen la disponibilidad de recursos y alteran la capacidad de regeneración de los ecosistemas, afectando tanto a la biodiversidad como a las comunidades dependientes.",
+                "imagen_url": "https://raw.githubusercontent.com/mcamilaa/streamlit_app/refs/heads/main/imagenes/reserva_nacional.jpg", 
+                "emoji": "🌍"
+            },
+            "Santuario Histórico": {
+                "descripcion": "Áreas protegidas que albergan tanto riqueza cultural y arqueológica como biodiversidad significativa. Ejemplos notables son sitios con ruinas prehispánicas o lugares históricos rodeados de ecosistemas únicos, donde se combinan la conservación del patrimonio cultural y natural. \n\n¿DE QUÉ MANERA AFECTA LA DEFORESTACIÓN? La tala ilegal y el cambio de uso del suelo degradan el entorno natural que complementa y protege los sitios históricos, afectando tanto el patrimonio cultural como la biodiversidad asociada.",
+                "imagen_url": "https://raw.githubusercontent.com/mcamilaa/streamlit_app/refs/heads/main/imagenes/santuario_hist.jpeg",  
+                "emoji": "🏛️"
+            },
+            "Santuario Nacional": {
+                "descripcion": "Áreas que protegen ecosistemas frágiles o únicos con especies de flora y fauna de alto valor ecológico. Aquí, las actividades humanas están estrictamente limitadas para garantizar la conservación de los hábitats en su estado más natural posible. \n\n¿DE QUÉ MANERA AFECTA LA DEFORESTACIÓN? En estos ecosistemas frágiles, cualquier pérdida de cobertura vegetal puede ser devastadora, eliminando especies vulnerables y alterando servicios ecosistémicos cruciales como la purificación del agua y la estabilidad del suelo.",
+                "imagen_url": "https://raw.githubusercontent.com/mcamilaa/streamlit_app/refs/heads/main/imagenes/santuario_nacional.jpeg", 
+                "emoji": "🌱"
+            },
+            "Zona Reservada": {
+                "descripcion": "Espacios con características especiales que se encuentran en evaluación para definir su categoría definitiva dentro del Sistema Nacional de Áreas Protegidas. Mientras tanto, se aplican medidas provisionales de conservación para evitar impactos negativos y garantizar su protección. \n\n¿DE QUÉ MANERA AFECTA LA DEFORESTACIÓN? La pérdida de bosques en estas áreas dificulta su evaluación y amenaza con destruir su valor antes de que puedan ser categorizadas. Esto pone en peligro tanto su biodiversidad como su potencial para la conservación.",
+                "imagen_url": "https://raw.githubusercontent.com/mcamilaa/streamlit_app/refs/heads/main/imagenes/zona_reservada.jpeg",  
+                "emoji": "🛑"
+            }
+        }
 
         # Mostrar la información en el cuadro
         if categoria_seleccionada in descripciones:
