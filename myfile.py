@@ -269,5 +269,62 @@ if menu == "Área Deforestada por ANP":
 if menu == "Conoce más":
     st.header("¿Cómo ayudo a frenar la deforestación?")
     st.write("¡Conoce a SOSelva!")
+
+    tab1, tab2, tab3 = st.tabs(["SOSelva", "Impacto Ambiental", "Cómo puedes ayudar"])
+
+    # Pestaña 1: SOSelva
+    with tab1:
+        st.subheader("¿Qué es SOSelva?")
+        st.write(
+            "SOSelva es una iniciativa impulsada por el SERNANP y aliados estratégicos para "
+            "proteger las áreas naturales protegidas de Perú, combatir la deforestación y promover "
+            "el desarrollo sostenible."
+        )
+        st.image("https://raw.githubusercontent.com/mcamilaa/streamlit_app/main/imagenes/soselva.jpg", 
+                 caption="Conservando la Amazonía peruana", use_column_width=True)
+
+        st.markdown("### Acciones Principales de SOSelva:")
+        st.write("""
+        - Monitoreo de áreas naturales protegidas.
+        - Promoción del turismo sostenible.
+        - Desarrollo de actividades económicas sostenibles para comunidades locales.
+        - Combate de delitos ambientales como el tráfico de fauna silvestre.
+        """)
+        st.markdown("### Aliados Estratégicos:")
+        st.write("Profonanpe, SPDA, APECO, LATAM Airlines y otros.")
+        
+        st.info("Conoce más en el sitio oficial de [SERNANP](https://www.sernanp.gob.pe).")
+
+    # Pestaña 2: Impacto Ambiental
+    with tab2:
+        st.subheader("Impacto Ambiental de la Deforestación")
+        st.write(
+            "La deforestación tiene consecuencias graves en la biodiversidad, el cambio climático "
+            "y la sostenibilidad de las comunidades locales. Perú, al ser un país megadiverso, "
+            "enfrenta desafíos significativos debido a la pérdida de cobertura forestal."
+        )
+        st.markdown("### Consecuencias principales:")
+        st.write("""
+        - Pérdida de hábitats para especies endémicas.
+        - Incremento de emisiones de gases de efecto invernadero.
+        - Erosión del suelo y pérdida de servicios ecosistémicos.
+        """)
+        st.image("https://raw.githubusercontent.com/mcamilaa/streamlit_app/main/imagenes/impacto.jpg", 
+                 caption="Impacto de la deforestación en ecosistemas vulnerables", use_column_width=True)
+
+    # Pestaña 3: Cómo puedes ayudar
+    with tab3:
+        st.subheader("¿Cómo puedes ayudar?")
+        st.write(
+            "La protección de nuestros bosques es una tarea colectiva. Aquí hay algunas maneras en las que puedes contribuir:"
+        )
+        st.markdown("### Opciones para contribuir:")
+        st.write("""
+        - Participa como voluntario en programas de reforestación.
+        - Apoya iniciativas como SOSelva mediante donaciones o difusión.
+        - Reduce tu consumo de productos asociados con la deforestación (como madera ilegal).
+        - Promueve el ecoturismo y las prácticas sostenibles.
+        """)
+        st.success("¡Cada acción cuenta para proteger nuestras áreas naturales protegidas!")
     
 
