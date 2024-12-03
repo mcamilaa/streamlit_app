@@ -192,6 +192,8 @@ if menu == "Comparativo":
     st.pyplot(fig)
     st.write(promedios)
 
+    st.image("https://github.com/mcamilaa/streamlit_app/blob/main/imagenes/defortc.png")
+
 # Sección: Zonificación
 if menu == "Zonificación":
     st.header("Zonificación de Deforestación")
@@ -244,7 +246,7 @@ if menu == "Zonificación":
         st.markdown("**8. Zona Histórico Cultural**")
         st.write("Áreas patrimoniales, amenazadas por expansión agrícola y urbanización ilegal.")
 
-# Sección: Área Deforestada por Categoría de ANP
+
 # Sección: Área Deforestada por Categoría de ANP
 if menu == "Área Deforestada por ANP":
     st.header("Área Deforestada por Categoría de ANP (2021-2023)")
