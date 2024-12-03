@@ -346,7 +346,7 @@ if menu == "Área Deforestada por ANP":
             
             # Mostrar cuadro de información
             st.info(
-                f"### ¿Qué es un(a) {categoria_seleccionada}? {info['emoji']}\n\n{info['texto']}"
+                f"### ¿Qué es un(a) {categoria_seleccionada}? {info['emoji']}\n\n{info['descripcion']}"
             )
             
             # Mostrar imagen al final
