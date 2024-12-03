@@ -121,7 +121,7 @@ if menu == "Deforestación por año":
 # Sección: Causas de Deforestación (Gráfico Interactivo)
 if menu == "Causas de Deforestación":
     st.header("Causas de la Deforestación")
-    
+    st.info("a deforestación no es un fenómeno aleatorio; es impulsada por una combinación de factores humanos y naturales. Los cuales tienden a ser unos más comunes que otros. Entre las causas humanas más comunes se encuentran la agricultura, transporte, mineria y ocupación humana. Los cuales veremos a continuación")
     # Agrupación de datos por causa
     area_causa = data.groupby('DEFO_CAUSA')['AREA_DEFO'].sum().reset_index()
     area_causa = area_causa.sort_values('AREA_DEFO', ascending=False)  # Ordenar por área
@@ -169,13 +169,6 @@ if menu == "Causas de Deforestación":
     # Tabla de datos
     st.write("Datos de causa de deforestación y área deforestada:")
     st.dataframe(area_causa)
-
-    st.markdown(
-        """
-        **Nota:** Estos datos reflejan las principales causas identificadas en el período de análisis. 
-        Es importante considerar medidas específicas para abordar cada factor.
-        """
-    )
    
 
 # Sección: Comparativo
@@ -201,6 +194,7 @@ if menu == "Comparativo":
 # Sección: Zonificación
 if menu == "Zonificación":
     st.header("Zonificación de Deforestación")
+    st.write("El gráfico presentado a continuación ilustra la deforestación clasificada por diferentes tipos de zonificación en áreas naturales protegidas (ANP). Este análisis nos permite identificar las categorías más afectadas y evaluar cómo las actividades humanas o la falta de planificación contribuyen a la pérdida de cobertura forestal.")
     area_zonificacion = data.groupby("ZONIFI_ANP")['AREA_DEFO'].sum().reset_index()
     area_zonificacion = area_zonificacion.sort_values('AREA_DEFO', ascending=True)
     
@@ -213,11 +207,58 @@ if menu == "Zonificación":
         'ZONIFI_ANP': 'Zonificación',
         'AREA_DEFO': 'Área Deforestada (ha)'
     }))
+  
+#inicio
+# Crear columnas para distribuir la información de forma ordenada
+col1, col2, col3, col4 = st.columns(4)
 
+# Columna 1
+with col1:
+    st.markdown("**1. Zona de Aprovechamiento Directo**")
+    st.write("Áreas productivas con alta deforestación por agricultura y ganadería.")
+
+# Columna 2
+with col2:
+    st.markdown("**2. Zona de Uso Especial**")
+    st.write("Áreas protegidas, pero con deforestación ilegal.")
+
+# Columna 3
+with col3:
+    st.markdown("**3. Zona Silvestre**")
+    st.write("Territorios de conservación, afectados por minería y tala ilegal.")
+
+# Columna 4
+with col4:
+    st.markdown("**4. No Zonificado**")
+    st.write("Áreas sin regulación, vulnerables a la deforestación.")
+
+# Nueva fila de columnas para continuar con la información
+col5, col6, col7, col8 = st.columns(4)
+
+# Columna 5
+with col5:
+    st.markdown("**5. Zona de Recuperación**")
+    st.write("Áreas en regeneración, aún afectadas por actividades humanas.")
+
+# Columna 6
+with col6:
+    st.markdown("**6. Zona de Protección Estricta**")
+    st.write("Áreas sin intervención, pero amenazadas por actividades ilegales.")
+
+# Columna 7
+with col7:
+    st.markdown("**7. Zona de Uso Turístico y Recreativo**")
+    st.write("Áreas turísticas que sufren daños por crecimiento desordenado.")
+
+# Columna 8
+with col8:
+    st.markdown("**8. Zona Histórico Cultural**")
+    st.write("Áreas patrimoniales, amenazadas por expansión agrícola y urbanización ilegal.")
+#final
 # Sección: Área Deforestada por Categoría de ANP
 if menu == "Área Deforestada por ANP":
     st.header("Área Deforestada por Categoría de ANP (2021-2023)")
-    
+    st.write("Las ANP si bien son protegidas por el estado, aún existe un sistema poco eficiente para lograr la cobertura total de protección de las regiones. Debido a que se siguen encontrando expuestas a peligros, en los gráficos a continuación veremos las áreas deforestadas separadas por categorias de ANP de las diversas partes del Perú.")
     # Filtrar datos para el periodo 2021-2023
     filtered_data = data[(data["ANIO_REPORTE"] >= 2021) & (data["ANIO_REPORTE"] <= 2023)].copy()
 
